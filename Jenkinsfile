@@ -11,12 +11,13 @@ pipeline {
 		    steps {
 		        sh 'java -version'
 		        sh 'mvn -version'
+		        sh 'mvn compile'
 		    }
 		}
 
         stage('Build') {
             steps {
-                sh 'mvn clean -DskipTests=true'
+                sh 'mvn clean install -DskipTests=true'
             }
         }
 
