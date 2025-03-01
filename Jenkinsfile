@@ -21,22 +21,22 @@ pipeline {
             }
         }
 
-        stage('Run') {
+        stage('Run JAR with Timeout') {
             steps {
-                sh 'java -jar target/*-runner.jar &' // Run in background (&)
-                sleep 10 // Give Quarkus time to start
+                sh 'timeout 120 java -jar target/demo-1.0-SNAPSHOT-runner.jar'
+                sleep 10
             }
         }
-//
-//         stage('Test') {
-//             steps {
-//                 sh 'curl http://localhost:8080/hello'
-//             }
-//         }
-//
+
+        stage('Test') {
+            steps {
+                sh 'curl http://localhost:8080/hello'
+            }
+        }
+
         stage('Stop') {
             steps {
-                sh 'pkill -f "target/*-runner.jar"' // Stop the Quarkus app
+                sh 'echo "Done! Successfully Executed!"' // Stop the Quarkus app
             }
         }
     }
