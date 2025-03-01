@@ -7,9 +7,16 @@ pipeline {
     }
 
     stages {
+        stage('Verify Java and Maven') {
+		    steps {
+		        sh 'java -version'
+		        sh 'mvn -version'
+		    }
+		}
+
         stage('Build') {
             steps {
-                sh 'java -version && mvn clean -DskipTests=true'
+                sh 'mvn clean -DskipTests=true'
             }
         }
 
