@@ -7,7 +7,7 @@ import io.quarkus.runtime.annotations.QuarkusMain;
 public class MainApplication implements QuarkusApplication {
 
 	@Override
-	public int run(String... args) throws Exception {
+	public int run(String... args) {
 		System.out.println("Hello World from Quarkus");
 		Quarkus.waitForExit();
 		return 0;
