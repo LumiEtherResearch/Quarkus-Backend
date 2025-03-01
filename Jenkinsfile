@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'http://192.168.0.20:31803/LumiEtherResearch/Quarkus-Backend.git' // Replace with your repository URL and branch
+                git branch: 'master', url: 'http://192.168.0.20:31803/LumiEtherResearch/Quarkus-Backend.git' // Replace with your repository URL and branch
             }
         }
 
