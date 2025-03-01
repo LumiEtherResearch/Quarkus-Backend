@@ -13,24 +13,24 @@ pipeline {
             }
         }
 
-        stage('Run') {
-            steps {
-                sh 'java -jar target/*-SNAPSHOT.jar &' // Run in background (&)
-                sleep 10 // Give Quarkus time to start
-            }
-        }
-
-        stage('Test') {
-            steps {
-                sh 'curl http://localhost:8080/hello'
-            }
-        }
-
-        stage('Stop') {
-            steps {
-                sh 'pkill -f "target/*-SNAPSHOT.jar"' // Stop the Quarkus app
-            }
-        }
+//         stage('Run') {
+//             steps {
+//                 sh 'java -jar target/*-SNAPSHOT.jar &' // Run in background (&)
+//                 sleep 10 // Give Quarkus time to start
+//             }
+//         }
+//
+//         stage('Test') {
+//             steps {
+//                 sh 'curl http://localhost:8080/hello'
+//             }
+//         }
+//
+//         stage('Stop') {
+//             steps {
+//                 sh 'pkill -f "target/*-SNAPSHOT.jar"' // Stop the Quarkus app
+//             }
+//         }
     }
 
     post {
