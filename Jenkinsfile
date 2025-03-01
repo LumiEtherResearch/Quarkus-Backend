@@ -23,7 +23,7 @@ pipeline {
 
         stage('Run JAR with Timeout') {
             steps {
-                sh 'timeout 120 java -jar target/demo-1.0-SNAPSHOT-runner.jar'
+                sh 'java -jar target/demo-1.0-SNAPSHOT-runner.jar'
                 sleep 10
             }
         }
