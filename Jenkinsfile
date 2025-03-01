@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                git branch: 'master', url: 'http://192.168.0.20:31803/LumiEtherResearch/Quarkus-Backend.git' // Replace with your repository URL and branch
-            }
-        }
-
         stage('Build') {
             steps {
                 sh 'mvn clean package'
