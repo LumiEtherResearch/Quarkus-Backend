@@ -21,12 +21,12 @@ pipeline {
             }
         }
 
-//         stage('Run') {
-//             steps {
-//                 sh 'java -jar target/*-SNAPSHOT.jar &' // Run in background (&)
-//                 sleep 10 // Give Quarkus time to start
-//             }
-//         }
+        stage('Run') {
+            steps {
+                sh 'java -jar target/*-SNAPSHOT.jar &' // Run in background (&)
+                sleep 10 // Give Quarkus time to start
+            }
+        }
 //
 //         stage('Test') {
 //             steps {
@@ -34,11 +34,11 @@ pipeline {
 //             }
 //         }
 //
-//         stage('Stop') {
-//             steps {
-//                 sh 'pkill -f "target/*-SNAPSHOT.jar"' // Stop the Quarkus app
-//             }
-//         }
+        stage('Stop') {
+            steps {
+                sh 'pkill -f "target/*-SNAPSHOT.jar"' // Stop the Quarkus app
+            }
+        }
     }
 
     post {
