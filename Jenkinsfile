@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         maven 'Maven' // Replace with the name you gave to your maven tool in global tool configuration.
-        jdk 'Java' // Replace with the name you gave to your jdk tool in global tool configuration.
+//         jdk 'Java' // Replace with the name you gave to your jdk tool in global tool configuration.
     }
 
     stages {
