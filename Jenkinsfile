@@ -1,6 +1,11 @@
 pipeline {
     agent any
 
+    tools {
+        maven 'maven' // Replace with the name you gave to your maven tool in global tool configuration.
+        jdk 'java' // Replace with the name you gave to your jdk tool in global tool configuration.
+    }
+
     stages {
         stage('Build') {
             steps {
