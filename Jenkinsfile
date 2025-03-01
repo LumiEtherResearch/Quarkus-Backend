@@ -21,10 +21,19 @@ pipeline {
             }
         }
 
+        stages {
         stage('Run JAR with Timeout') {
             steps {
-                sh 'timeout 120 java -jar target/demo-1.0-SNAPSHOT-runner.jar'
-                sleep 10
+                script {
+                    def exitCode = sh(script: 'timeout 120 java -jar target/demo-1.0-SNAPSHOT-runner.jar', returnStatus: true)
+                    if (exitCode == 124) {
+                        echo "JAR process timed out as expected."
+                    } else if (exitCode != 0) {
+                        error "JAR process failed with exit code ${exitCode}"
+                    } else {
+                        echo "JAR process completed successfully before timeout."
+                    }
+                }
             }
         }
 
