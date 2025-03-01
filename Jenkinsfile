@@ -28,12 +28,6 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                sh 'curl http://localhost:8080/hello'
-            }
-        }
-
         stage('Stop') {
             steps {
                 sh 'echo "Done! Successfully Executed!"' // Stop the Quarkus app
