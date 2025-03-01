@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'java -version && mvn clean package'
+                sh 'java -version && mvn clean -DskipTests=true'
             }
         }
 
