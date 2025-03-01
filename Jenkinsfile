@@ -23,7 +23,7 @@ pipeline {
 
         stage('Run') {
             steps {
-                sh 'java -jar target/*-SNAPSHOT.jar &' // Run in background (&)
+                sh 'java -jar target/*-runner.jar &' // Run in background (&)
                 sleep 10 // Give Quarkus time to start
             }
         }
@@ -36,7 +36,7 @@ pipeline {
 //
         stage('Stop') {
             steps {
-                sh 'pkill -f "target/*-SNAPSHOT.jar"' // Stop the Quarkus app
+                sh 'pkill -f "target/*-runner.jar"' // Stop the Quarkus app
             }
         }
     }
